@@ -64,13 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <a class="nav-link" href="resources.html">Resources</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="register.html">Register</a>
+              <a class="nav-link" href="register.php">Register</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="donations.html">Donations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="login.php">Login</a>
             </li>
           </ul>
         </div>
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="container mt-5">
         <h1>The Covid Connection Account Creation</h1>
         <p>Join us to access more resources and donation opportunities.</p>
-        <img src="../img/covid.png" class="img-thumbnail" alt="...">
+        <img src="img/covid.png" class="img-thumbnail" alt="...">
         <form id="registrationForm" method="post">
           <div class="form-group">
             <label for="email">Email:</label>

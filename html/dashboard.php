@@ -42,7 +42,6 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Login</a>
             </li>
-            
           </ul>
         </div>
       </nav>
@@ -51,40 +50,18 @@ if (!isset($_SESSION['username'])) {
       <div class="container mt-5">
       <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
         <div id="successMessage" style="display: none; color: green;"></div>
-        <form id="donationForm">
+        <form id="donationForm" method="post">
             <div>
                 <label for="donation_amount">Donation Amount (USD):</label>
                 <input type="number" step="0.01" min="0" id="donation_amount" required>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" id="donateButton">Donate Now!</button>
         </form>
     <br>
     <a href="logout.php">Logout</a> <!-- Add a link to the logout script (logout.php) to allow users to log out -->
       
     <!-- Script to show the donation amount on the page dynamically -->
-    <script>
-        document.getElementById("donationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            const donationAmount = document.getElementById("donation_amount").value;
-
-            // Use AJAX to send data to the server
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "process_donation.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Display the success message
-                    document.getElementById("successMessage").textContent = "Thanks for your donation of $" + donationAmount + "!";
-                    document.getElementById("successMessage").style.display = "block";
-                } else {
-                    // Handle errors if any.
-                    console.error("Error processing donation:", xhr.responseText);
-                }
-            };
-            xhr.send("donation_amount=" + encodeURIComponent(donationAmount));
-        });
-    </script>
+    <script src="js/send_donation.js"></script>
     <hr>
 
     <footer>

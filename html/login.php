@@ -98,13 +98,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p style="color: red;"><?php echo $error_message; ?></p>
         <?php endif; ?>
         <form method="post">
-        <div>
+        <div class="form-group">
             <label for="login_identifier">Email or Username:</label>
-            <input type="text" id="login_identifier" name="login_identifier" required>
+            <input type="text" class="form-control" id="login_identifier" name="login_identifier" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit">Login</button>
     </form>
