@@ -13,13 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $loginIdentifier = $_POST['login_identifier'];
     $password = $_POST['password'];
 
-    // Connect to the MySQL db
-    $servername = "localhost";
-    $username = "covidconnect";
-    $password = "covid";
+    // Connect to the db
+    $dbservername = "localhost";
+    $dbusername = "covidconnect";
+    $dbpassword = "covid";
     $dbname = "covid";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }

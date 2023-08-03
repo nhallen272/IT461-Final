@@ -10,12 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     // Connect to the db
-    $servername = "localhost";
-    $username = "covidconnect";
-    $password = "covid";
+    $dbservername = "localhost";
+    $dbusername = "covidconnect";
+    $dbpassword = "covid";
     $dbname = "covid";
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
