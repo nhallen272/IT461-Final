@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!isNaN(donationAmount) && donationAmount > 0) {
 
       // send the donation to the server
-      sendDonationData(donationAmount, username);
+      sendDonationData(donationAmount);
       resultDiv.innerHTML = `Thank you for your donation of $${donationAmount.toFixed(2)}!`;
       
     } 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  function sendDonationData(amount, username) {
+  function sendDonationData(amount) {
     // new XMLHttpRequest
     const xhr = new XMLHttpRequest();
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     // Build the data to be sent to the server
-    const data = `donation_amount=${encodeURIComponent(amount)}&username=${encodeURIComponent(username)}`;
+    const data = `donation_amount=${encodeURIComponent(amount)}`;
 
     // Handle response from the server
     xhr.onreadystatechange = function() {
