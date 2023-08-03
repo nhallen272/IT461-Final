@@ -1,7 +1,10 @@
 <?php
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the donation amount from the AJAX request
     $donationAmount = $_POST['donation_amount'];
+    $username = $_SESSION['username'];
 
     
     // Connect to the db

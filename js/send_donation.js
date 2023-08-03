@@ -11,16 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check if the input is a valid
     if (!isNaN(donationAmount) && donationAmount > 0) {
-      // Get the username if logged in
-      const username = "<?php echo isset($_SESSION['username']) ? json_encode($_SESSION['username']) : 'anonymous'; ?>";
 
-      // send the donation amount to server
-      if (username !== 'anonymous') {
-        sendDonationData(donationAmount, username);
-      } else {
-        resultDiv.innerHTML = `Thank you for your donation of $${donationAmount.toFixed(2)}!`;
-      }
-    } else {
+      // send the donation to the server
+      sendDonationData(donationAmount, username);
+      resultDiv.innerHTML = `Thank you for your donation of $${donationAmount.toFixed(2)}!`;
+      
+    } 
+    else {
       resultDiv.innerHTML = 'Please enter a valid donation amount.';
     }
   });
