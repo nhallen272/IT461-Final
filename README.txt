@@ -14,8 +14,8 @@ Linux server-side steps:
 
     sudo mysql -u root -p 
     CREATE DATABASE covid;
-    CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
-    GRANT ALL PRIVILEGES ON covid.* TO 'your_user'@'localhost';
+    CREATE USER 'covidconnect'@'localhost' IDENTIFIED BY 'covid';
+    GRANT ALL PRIVILEGES ON covid.* TO 'covidconnect'@'localhost';
     FLUSH PRIVILEGES;
 
     b. Create users, and donations tables: 

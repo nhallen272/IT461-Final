@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Connect to the MySQL db
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "covidconnect";
+    $password = "covid";
     $dbname = "covid";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
