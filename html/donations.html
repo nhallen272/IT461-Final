@@ -28,7 +28,7 @@
               <a class="nav-link" href="donations.html">Donations</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
+              <a class="nav-link" href="login.php">Login</a>
             </li>
           </ul>
         </div>
@@ -40,9 +40,40 @@
         <p>
             Here, you can make a one time donation of any amount to further support our efforts here at Covid Connect.
         </p>
-        <button type="button" class="btn btn-primary">Donate Now!</button>
-      </div>
 
+        
+          <div class="form-group" id="donationForm">
+              <label for="donation_amount">Donation Amount (USD):</label>
+              <input type="number" step="0.01" min="0" id="donation_amount" required>
+              <button type="submit">Donate Now!</button>
+            </div>
+          
+    
+      </div>
+   <!-- Script to show the donation amount on the page dynamically -->
+   <script>
+    document.getElementById("donationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        const donationAmount = document.getElementById("donation_amount").value;
+
+        //Send donation data to the server
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "process_donation.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Display the success message
+                document.getElementById("successMessage").textContent = "Thanks for your donation of $" + donationAmount + "!";
+                document.getElementById("successMessage").style.display = "block";
+            } else {
+                // Handle errors if any.
+                console.error("Error processing donation:", xhr.responseText);
+            }
+        };
+        xhr.send("donation_amount=" + encodeURIComponent(donationAmount));
+    });
+</script>
       <hr>
       <footer>
         <div class="container"><p>&copy; 2023 The Covid Connection. All rights reserved.</p></div>
