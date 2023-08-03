@@ -57,6 +57,7 @@ if (!isset($_SESSION['username'])) {
             </div>
             <button type="submit" id="donateButton">Donate Now!</button>
         </form>
+        <div id="result"></div>
     <br>
     <a href="logout.php">Logout</a> <!-- Add a link to the logout script (logout.php) to allow users to log out -->
       
